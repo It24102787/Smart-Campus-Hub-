@@ -1,0 +1,82 @@
+{
+  "study_rooms": [
+    {
+      "name": "Library Room 1",
+      "building": "Library",
+      "floor": "1",
+      "zone": "Library District",
+      "capacity": 6,
+      "currentOccupancy": 2,
+      "temperature": 26.1,
+      "occupancyPercent": 33.3,
+      "status": "AVAILABLE",
+      "deviceId": "RFID-LIB-01"
+    },
+    {
+      "name": "Library Room 2",
+      "building": "Library",
+      "floor": "2",
+      "zone": "Library District",
+      "capacity": 8,
+      "currentOccupancy": 4,
+      "temperature": 26.8,
+      "occupancyPercent": 50.0,
+      "status": "ACTIVE",
+      "deviceId": "RFID-LIB-03"
+    },
+    {
+      "name": "Silent Pod A",
+      "building": "Library",
+      "floor": "3",
+      "zone": "Library District",
+      "capacity": 1,
+      "currentOccupancy": 0,
+      "temperature": 24.4,
+      "occupancyPercent": 0,
+      "status": "AVAILABLE",
+      "deviceId": "RFID-LIB-02"
+    },
+    {
+      "name": "Group Room B",
+      "building": "IT Center",
+      "floor": "2",
+      "zone": "Tech Hub",
+      "capacity": 10,
+      "currentOccupancy": 7,
+      "temperature": 27.4,
+      "occupancyPercent": 70.0,
+      "status": "ACTIVE",
+      "deviceId": "RFID-IT-01"
+    },
+    {
+      "name": "Main Building Room 202",
+      "building": "Main Building",
+      "floor": "2",
+      "zone": "Main Hall",
+      "capacity": 12,
+      "currentOccupancy": 0,
+      "temperature": 23.0,
+      "occupancyPercent": 0,
+      "status": "MAINTENANCE",
+      "deviceId": "RFID-MB-01"
+    }
+  ],
+  "bookings": [
+    {
+      "roomId": "<room-id>",
+      "bookingDate": "2026-03-20",
+      "startTime": "10:00",
+      "endTime": "12:00"
+    },
+    {
+      "roomId": "<room-id>",
+      "bookingDate": "2026-03-20",
+      "startTime": "14:00",
+      "endTime": "16:00"
+    }
+  ],
+  "iot": {
+    "cardTap": { "cardUid": "04A8C13299", "deviceId": "RFID-LIB-01" },
+    "environmentReading": { "sensorDeviceId": "LIB-01", "temperature": 27.5, "occupancyCount": 4 }
+  }
+}

@@ -1,0 +1,701 @@
+/* ===============================
+   GLOBAL THEME VARIABLES
+================================ */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --bg-main: #f4f8ff;
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(37, 99, 235, 0.25);
+    --text-main: #0f172a;
+    --text-sub: #475569;
+}
+
+/* ===============================
+   RESET & BODY
+================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: linear-gradient(135deg, #e0ecff, #f9fbff);
+    color: var(--text-main);
+}
+
+/* ===============================
+   APP LAYOUT (TOP NAV)
+================================ */
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===============================
+   NAVBAR (TOP)
+================================ */
+.navbar {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+/* Brand/title inside navbar */
+.navbar-title {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+/* Nav links container */
+.nav-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Individual link (includes icon alignment) */
+.nav-link {
+    text-decoration: none;
+    color: #e0e7ff;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 6px; /* icon spacing */
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* ===============================
+   CONTENT
+================================ */
+.app-content {
+    padding: 20px;
+}
+
+/* ===============================
+   PAGE HEADER
+================================ */
+.page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.page-sub {
+    margin-top: 4px;
+    color: var(--text-sub);
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+.btn-outline {
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 1px solid #c7d2fe;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* ===============================
+   GLASS CARDS (COMMON)
+================================ */
+.stat-card,
+.panel,
+.tutor-card,
+.qa-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover,
+.panel:hover,
+.tutor-card:hover,
+.qa-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ===============================
+   STATS GRID
+================================ */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: var(--text-sub);
+}
+
+.stat-value {
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 6px;
+    color: var(--primary);
+}
+
+/* ===============================
+   PANELS
+================================ */
+.two-col {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 14px;
+}
+
+.panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.panel-title {
+    font-weight: 800;
+}
+
+.link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ===============================
+   TABLE
+================================ */
+.table {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tr {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr 1fr;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.th {
+    font-weight: 700;
+    background: rgba(37, 99, 235, 0.08);
+}
+
+/* ===============================
+   BADGES
+================================ */
+.badge {
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary-dark);
+}
+
+/* ===============================
+   Q&A
+================================ */
+.qa-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.qa-title {
+    font-weight: 800;
+}
+
+.qa-desc {
+    font-size: 13px;
+    color: var(--text-sub);
+}
+
+/* ===============================
+   FORMS
+================================ */
+.filters {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
+    gap: 12px;
+    align-items: end;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.label {
+    font-size: 12px;
+    color: var(--text-sub);
+}
+
+.input {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid #c7d2fe;
+    outline: none;
+}
+
+.input:focus {
+    border-color: var(--primary);
+}
+
+/* ===============================
+   TUTOR CARDS
+================================ */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.tutor-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tutor-name {
+    font-weight: 800;
+}
+
+.tutor-sub {
+    font-size: 13px;
+    color: var(--text-sub);
+}
+
+.rating {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--primary-dark);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.pill {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.25);
+}
+
+.tutor-actions {
+    margin-top: 14px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ===============================
+   EMPTY STATE
+================================ */
+.empty {
+    margin-top: 12px;
+    color: var(--text-sub);
+}
+
+/* ===============================
+   DROPDOWN (HOVER + SMOOTH + ARROW ROTATE)
+================================ */
+.dropdown {
+    position: relative;
+    padding-bottom: 8px; /* hover gap fix */
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+/* Arrow animation */
+.dropdown-arrow {
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* Rotate arrow on hover */
+.dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Menu (always exists for animation) */
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 8px;
+    width: 230px;
+
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 16px 40px rgba(37, 99, 235, 0.22);
+    z-index: 100;
+
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: all 0.18s ease;
+}
+
+/* SHOW ON HOVER */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.dropdown-item:hover {
+    background: rgba(37, 99, 235, 0.10);
+}
+/* Next-level form layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: 12px;
+}
+
+.hint {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--text-sub);
+}
+
+.input-error {
+    border-color: #ef4444 !important;
+}
+
+.error-text {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.form-actions {
+    margin-top: 18px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Modal */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 200;
+}
+
+.modal {
+    width: min(520px, 100%);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(37, 99, 235, 0.25);
+    padding: 18px;
+}
+
+.modal-title {
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.modal-text {
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.modal-actions {
+    margin-top: 14px;
+    display: flex;
+    justify-content: flex-end;
+}
+/* Modern Table */
+.table-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.header-row {
+    font-weight: 700;
+    background: rgba(37, 99, 235, 0.08);
+}
+
+.body-row {
+    background: rgba(255, 255, 255, 0.6);
+    transition: 0.2s ease;
+}
+
+.body-row:hover {
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.4fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.pending {
+    background: rgba(251, 191, 36, 0.2);
+    color: #92400e;
+}
+
+.status-badge.approved {
+    background: rgba(34, 197, 94, 0.2);
+    color: #065f46;
+}
+
+.status-badge.cancelled {
+    background: rgba(107, 114, 128, 0.2);
+    color: #374151;
+}
+
+/* Small Button */
+.small-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+/* Filters modern */
+.filters-modern {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+/* Table wrapper scroll */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* Modern table */
+.table-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.header-row {
+    font-weight: 700;
+    background: rgba(37, 99, 235, 0.08);
+}
+
+.body-row {
+    background: rgba(255, 255, 255, 0.6);
+    transition: 0.2s ease;
+}
+
+.body-row:hover {
+    background: rgba(37, 99, 235, 0.05);
+}
+
+/* Status badges */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    animation: pulse 1.5s infinite alternate;
+}
+
+.status-badge.pending {
+    background: rgba(251, 191, 36, 0.2);
+    color: #92400e;
+}
+
+.status-badge.approved {
+    background: rgba(34, 197, 94, 0.2);
+    color: #065f46;
+}
+
+.status-badge.cancelled {
+    background: rgba(107, 114, 128, 0.2);
+    color: #374151;
+}
+
+/* Fade animation */
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse */
+@keyframes pulse {
+    from { opacity: 0.9; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .tr {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/* Tutor card action buttons */
+.tutor-actions {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.tutor-actions-left {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: 0.2s ease;
+}
+
+.icon-btn:hover {
+    background: rgba(37, 99, 235, 0.10);
+}
+
+.icon-btn.danger {
+    border-color: rgba(239, 68, 68, 0.35);
+}
+
+.icon-btn.danger:hover {
+    background: rgba(239, 68, 68, 0.10);
+}
+/* ===== Modal form grid (FIXED) ===== */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+}
+
+/* full width row */
+.form-grid .full {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 900px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* errors */
+.input-error {
+    border-color: rgba(239, 68, 68, 0.65) !important;
+}
+
+.error-text {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #b91c1c;
+}
+
+.hint {
+    margin-top: 6px;
+    font-size: 12px;
+    color: rgba(71, 85, 105, 0.95);
+}

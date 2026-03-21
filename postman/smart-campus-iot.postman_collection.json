@@ -1,0 +1,102 @@
+{
+  "info": {
+    "name": "Smart Campus Booking + IoT APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/api/auth/login", "host": ["{{baseUrl}}"], "path": ["api", "auth", "login"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"student@campus.com\",\n  \"password\": \"student123\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Booking",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": { "raw": "{{baseUrl}}/api/bookings", "host": ["{{baseUrl}}"], "path": ["api", "bookings"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"roomId\": \"{{roomId}}\",\n  \"bookingDate\": \"2026-03-20\",\n  \"startTime\": \"10:00\",\n  \"endTime\": \"12:00\"\n}"
+        }
+      }
+    },
+    {
+      "name": "My Bookings",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "{{baseUrl}}/api/bookings/my", "host": ["{{baseUrl}}"], "path": ["api", "bookings", "my"] }
+      }
+    },
+    {
+      "name": "Booking By Id",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "{{baseUrl}}/api/bookings/{{bookingId}}", "host": ["{{baseUrl}}"], "path": ["api", "bookings", "{{bookingId}}"] }
+      }
+    },
+    {
+      "name": "Cancel Booking",
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "{{baseUrl}}/api/bookings/{{bookingId}}", "host": ["{{baseUrl}}"], "path": ["api", "bookings", "{{bookingId}}"] }
+      }
+    },
+    {
+      "name": "All Study Rooms",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/api/study-rooms", "host": ["{{baseUrl}}"], "path": ["api", "study-rooms"] }
+      }
+    },
+    {
+      "name": "Room Availability",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/study-rooms/{{roomId}}/availability?date=2026-03-20",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "study-rooms", "{{roomId}}", "availability"],
+          "query": [{ "key": "date", "value": "2026-03-20" }]
+        }
+      }
+    },
+    {
+      "name": "IoT Card Tap",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/api/iot/card-tap", "host": ["{{baseUrl}}"], "path": ["api", "iot", "card-tap"] },
+        "body": { "mode": "raw", "raw": "{\n  \"cardUid\": \"04A8C13299\",\n  \"deviceId\": \"RFID-LIB-01\"\n}" }
+      }
+    },
+    {
+      "name": "IoT Environment Reading",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/api/iot/environment-reading", "host": ["{{baseUrl}}"], "path": ["api", "iot", "environment-reading"] },
+        "body": { "mode": "raw", "raw": "{\n  \"sensorDeviceId\": \"LIB-01\",\n  \"temperature\": 27.5,\n  \"occupancyCount\": 4\n}" }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "token", "value": "" },
+    { "key": "roomId", "value": "replace-with-room-id" },
+    { "key": "bookingId", "value": "replace-with-booking-id" }
+  ]
+}
