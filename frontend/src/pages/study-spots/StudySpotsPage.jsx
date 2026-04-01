@@ -4,6 +4,7 @@ import { studySpotApi } from '../../api/studySpotApi';
 import campusMapQR from '../../assets/images/campus-map-qr.png';
 
 const STATUS_OPTIONS = ['', 'AVAILABLE', 'ACTIVE', 'NEARLY_FULL', 'FULL', 'MAINTENANCE'];
+const CAMPUS_MAP_URL = 'https://static.sliit.lk/vt/index.html';
 
 const statusClasses = {
   AVAILABLE: 'bg-emerald-50 text-emerald-700 border-emerald-200',
@@ -39,7 +40,6 @@ const StudySpotsPage = () => {
   const [submitting, setSubmitting] = useState(false);
   const [availability, setAvailability] = useState(null);
   const [availabilityLoading, setAvailabilityLoading] = useState(false);
-  const [showQRModal, setShowQRModal] = useState(false);
 
   const loadRooms = async (showLoader = false) => {
     if (showLoader) setLoadingRooms(true);
@@ -316,25 +316,33 @@ const StudySpotsPage = () => {
               <p className="text-xs text-blue-700 mb-4">Access the campus map with a quick scan</p>
 
               <div className="flex justify-center mb-4">
-                <div className="rounded-xl border-2 border-blue-200 bg-white p-3 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setShowQRModal(true)}>
+                <a
+                  href={CAMPUS_MAP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border-2 border-blue-200 bg-white p-3 cursor-pointer hover:shadow-lg transition-shadow"
+                  aria-label="Open campus map"
+                >
                   <img
                     src={campusMapQR}
                     alt="Campus map QR code"
                     className="w-32 h-32 object-contain"
                   />
-                </div>
+                </a>
               </div>
 
               <p className="text-center text-xs text-blue-600 mb-4 px-2">
                 Scan to view campus map
               </p>
 
-              <button
-                onClick={() => setShowQRModal(true)}
-                className="w-full rounded-xl border border-blue-300 bg-white px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-100 transition"
+              <a
+                href={CAMPUS_MAP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-xl border border-blue-300 bg-white px-4 py-2 text-center text-sm font-semibold text-blue-700 hover:bg-blue-100 transition"
               >
                 View Full QR
-              </button>
+              </a>
             </div>
           </div>
         </>
@@ -478,45 +486,6 @@ const StudySpotsPage = () => {
                 className="rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-slate-400"
               >
                 {submitting ? 'Booking...' : 'Confirm Booking'}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {showQRModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4">
-          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
-            <div className="mb-4 flex items-start justify-between">
-              <div>
-                <h2 className="text-xl font-bold text-slate-900">Campus Map QR Code</h2>
-                <p className="text-sm text-slate-500">Scan with your phone camera</p>
-              </div>
-              <button onClick={() => setShowQRModal(false)} className="rounded-lg p-1 text-slate-500 hover:bg-slate-100">
-                <X size={18} />
-              </button>
-            </div>
-
-            <div className="flex justify-center mb-4">
-              <div className="rounded-xl bg-white p-4 border border-slate-200">
-                <img
-                  src={campusMapQR}
-                  alt="Campus map QR code"
-                  className="w-64 h-64 object-contain"
-                />
-              </div>
-            </div>
-
-            <p className="text-center text-sm text-slate-600 mb-4">
-              Use your phone camera to scan this QR code and access the campus map
-            </p>
-
-            <div className="flex justify-end gap-3">
-              <button
-                onClick={() => setShowQRModal(false)}
-                className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50"
-              >
-                Close
               </button>
             </div>
           </div>
