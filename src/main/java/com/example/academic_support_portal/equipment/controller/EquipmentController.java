@@ -37,9 +37,12 @@ public class EquipmentController {
   @PreAuthorize("hasRole('STUDENT') or hasRole('ADMIN')")
   public ResponseEntity<EquipmentBooking> bookEquipment(@PathVariable String id,
       @Valid @RequestBody EquipmentBooking booking) {
+    // Enrich with equipment name so admin panel can display it without extra lookups
+    equipmentRepository.findById(id).ifPresent(eq -> booking.setEquipmentName(eq.getName()));
     booking.setEquipmentId(id);
     booking.setStatus("PENDING");
-    booking.setQrToken(UUID.randomUUID().toString()); // Generate a unique QR token
+    booking.setCreatedAt(java.time.LocalDateTime.now().toString());
+    booking.setQrToken(UUID.randomUUID().toString());
     return ResponseEntity.ok(bookingRepository.save(booking));
   }
 
@@ -52,6 +55,13 @@ public class EquipmentController {
           return ResponseEntity.ok(bookingRepository.save(booking));
         })
         .orElse(ResponseEntity.notFound().build());
+  }
+
+  /** Admin: list ALL bookings across all users and statuses */
+  @GetMapping("/bookings")
+  @PreAuthorize("hasRole('ADMIN')")
+  public List<EquipmentBooking> getAllBookings() {
+    return bookingRepository.findAll();
   }
 
   @GetMapping("/bookings/my")

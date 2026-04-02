@@ -19,9 +19,12 @@ public class EquipmentBooking {
   private String id;
 
   private String equipmentId;
+  private String equipmentName; // stored at booking time for easy display
 
   @NotBlank(message = "User ID is required")
   private String userId;
+
+  private String userName; // stored at booking time for easy display
 
   @NotBlank(message = "Start date is required")
   private String startDate;
@@ -41,4 +44,6 @@ public class EquipmentBooking {
   private String conditionReportAfter;
 
   private String returnedAt;
+
+  private String createdAt;
 }
