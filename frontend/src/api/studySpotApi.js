@@ -37,6 +37,10 @@ export const studySpotApi = {
     const res = await api.delete(`/bookings/${bookingId}`);
     return res.data;
   },
+  updateBooking: async (bookingId, payload) => {
+    const res = await api.patch(`/bookings/${bookingId}`, payload);
+    return res.data;
+  },
   tapCard: async (payload) => {
     const res = await api.post("/iot/card-tap", payload);
     return res.data;
